@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div id="user-info">
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+            <button id="logout-button">Logout</button>
+        </div>
+        <p id="error-message"></p>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDYML8UJ6x9TB-nDEWAOGbYPpuaBA47v2c",
+            authDomain: "toonigy-47966.firebaseapp.com",
+            projectId: "toonigy-47966",
+            storageBucket: "toonigy-47966.firebasestorage.app",
+            messagingSenderId: "1008929548201",
+            appId: "1:1008929548201:web:6d1160e081fe1205b3c6b8",
+            measurementId: "G-LNKRSYPZ4C"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        // Check if the user is logged in
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // User is logged in, display user info
+                document.getElementById('user-email').textContent = user.email;
+            } else {
+                // Redirect to login page if no user is authenticated
+                window.location.href = "login.html";
+            }
+        });
+
+        // Logout function
+        document.getElementById('logout-button').addEventListener('click', function() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "login.html"; // Redirect to login page after logout
+            }).catch((error) => {
+                document.getElementById('error-message').textContent = error.message;
+            });
+        });
+    </script>
+</body>
+</html>
