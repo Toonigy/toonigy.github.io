@@ -21,7 +21,7 @@
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
 
         <!-- Google Sign-In Button -->
-        <div id="google-signin-button"></div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
 
     <script>
@@ -38,12 +38,12 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        // Google Sign-In client ID
-        const provider = new firebase.auth.GoogleAuthProvider();
+        // Google Sign-In success callback
+        function onSignIn(googleUser) {
+            const idToken = googleUser.getAuthResponse().id_token;
+            const credential = firebase.auth.GoogleAuthProvider.credential(idToken);
 
-        // Set up Google Sign-In button
-        document.getElementById('google-signin-button').addEventListener('click', function() {
-            firebase.auth().signInWithPopup(provider)
+            firebase.auth().signInWithCredential(credential)
                 .then((result) => {
                     alert("Google login successful!");
                     window.location.href = "profile.html"; // Redirect to profile page
@@ -51,7 +51,7 @@
                 .catch((error) => {
                     document.getElementById('error-message').textContent = error.message;
                 });
-        });
+        }
 
         // Login form submission
         document.getElementById('login-form').addEventListener('submit', function(event) {
