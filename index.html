@@ -1,23 +1,179 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Daboss7173's Coding Projects</title>
-	<meta name="description" content="Wanna mess around with some teenager's coding projects? Well this is the place!"/>
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
-	<link rel="stylesheet" type="text/css" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Prodigy Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for Retro/Game Vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Fredoka', 'sans-serif'],
+                        body: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        prodigy: {
+                            purple: '#6C5CE7',
+                            darkPurple: '#4834D4',
+                            teal: '#00CEC9',
+                            yellow: '#FDCB6E',
+                            orange: '#E17055',
+                            bg: '#0F172A',
+                            cardBg: '#1E293B'
+                        }
+                    },
+                    boxShadow: {
+                        'retro-purple': '0 8px 0px 0px #4834D4',
+                        'retro-teal': '0 8px 0px 0px #00B894',
+                        'retro-orange': '0 8px 0px 0px #D63031',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0F172A;
+            background-image: 
+                radial-gradient(at 20% 20%, rgba(108, 92, 231, 0.25) 0px, transparent 50%),
+                radial-gradient(at 80% 80%, rgba(0, 206, 201, 0.2) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .font-heading {
+            font-family: 'Fredoka', sans-serif;
+        }
+        .card-hover-effect {
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-6px);
+        }
+        .card-hover-effect:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px 0px currentColor;
+        }
+    </style>
 </head>
+<body class="min-h-screen text-slate-100 flex flex-col justify-between">
 
-<body>
-	<div class="title" align="center">
-	- Daboss7173's Projects -
-	</div>
-	<div align="center" style="position: relative; top: 30px">
-		<button onclick="window.location.href='/oldprodigy'" id="oldprodigy" class="button">
-		Old Prodigy
-		</button>
-	</div>
-	<div class="footer-container">
-		<div class="footer" align="center">
-			<a target="_blank" href="https://github.com/Daboss7173/Daboss7173.github.io">Check out my Github!</a>
-		</div>
-	</div>
+    <!-- Background Grid Lines Overlay -->
+    <div class="fixed inset-0 pointer-events-none opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+    <div class="relative z-10">
+        <!-- Navigation Header -->
+        <header class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center border-b border-slate-800">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-teal-400 flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                    <i class="fa-solid to-wand-magic-sparkles">🧙‍♂️</i>
+                </div>
+                <span class="font-heading font-bold text-2xl tracking-wide bg-gradient-to-r from-purple-400 to-teal-300 bg-clip-text text-transparent">
+                    Old Prodigy
+                </span>
+            </div>
+            <div class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-teal-400">
+                <i class="fa-solid fa-circle text-[10px] mr-1.5 animate-pulse text-emerald-400"></i> Archive Hub
+            </div>
+        </header>
+
+        <main class="max-w-5xl mx-auto px-4 py-12 md:py-16">
+            <!-- Hero Section -->
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight leading-tight">
+                    Welcome to <span class="bg-gradient-to-r from-purple-400 via-teal-300 to-yellow-300 bg-clip-text text-transparent">Old Prodigy</span>
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg">
+                    Step back into classic game builds, insider testing environments, and specialized tools. Select your destination below.
+                </p>
+            </div>
+
+            <!-- Main 3 Navigation Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Button 1: Prodidows -->
+                <a href="https://toonigy.github.io/prodidows/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="card-hover-effect bg-slate-800/80 backdrop-blur-md border-2 border-purple-500/50 hover:border-purple-400 rounded-2xl p-6 flex flex-col justify-between shadow-retro-purple group text-purple-400">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-windows text-purple-400"></i>
+                        </div>
+                        <h2 class="font-heading text-2xl font-bold text-white mb-2 flex items-center justify-between">
+                            Prodidows
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                        </h2>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Access the Prodidows web OS environment designed specifically for Old Prodigy fans.
+                        </p>
+                    </div>
+                    <div class="w-full py-3 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-heading font-semibold text-center transition-colors shadow-md">
+                        Launch Prodidows
+                    </div>
+                </a>
+
+                <!-- Button 2: Old Prodigy Insider Program -->
+                <a href="https://toonigy.github.io/Website-Tester/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="card-hover-effect bg-slate-800/80 backdrop-blur-md border-2 border-teal-500/50 hover:border-teal-400 rounded-2xl p-6 flex flex-col justify-between shadow-retro-teal group text-teal-400">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-vial-circle-check text-teal-400"></i>
+                        </div>
+                        <h2 class="font-heading text-2xl font-bold text-white mb-2 flex items-center justify-between">
+                            Insider Program
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                        </h2>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Test upcoming features, experiment with beta builds, and access the Website Tester tool.
+                        </p>
+                    </div>
+                    <div class="w-full py-3 px-4 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-heading font-bold text-center transition-colors shadow-md">
+                        Open Website Tester
+                    </div>
+                </a>
+
+                <!-- Button 3: Version List -->
+                <a href="https://toonigy.github.io/oldprodigy/select/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="card-hover-effect bg-slate-800/80 backdrop-blur-md border-2 border-rose-500/50 hover:border-rose-400 rounded-2xl p-6 flex flex-col justify-between shadow-retro-orange group text-rose-500">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-list-check text-rose-400"></i>
+                        </div>
+                        <h2 class="font-heading text-2xl font-bold text-white mb-2 flex items-center justify-between">
+                            Version List
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-50 group-hover:opacity-100 transition-opacity"></i>
+                        </h2>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Browse through archived builds and select historical versions of Old Prodigy to play.
+                        </p>
+                    </div>
+                    <div class="w-full py-3 px-4 rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-heading font-semibold text-center transition-colors shadow-md">
+                        Select Version
+                    </div>
+                </a>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-6 text-center text-slate-500 text-sm relative z-10">
+        <p>© Old Prodigy Portal &bull; Links destination hosted on GitHub Pages</p>
+    </footer>
+
+</body>
 </html>
